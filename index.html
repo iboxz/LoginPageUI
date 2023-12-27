@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *,
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: 0.2s;
+            user-select: none;
+        }
+
+        body,
+        html {
+            scroll-behavior: smooth;
+            height: 100vh;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @font-face {
+            font-family: YekanBakhFaNum;
+            src: url("assets/fonts/YekanBakhFaNum-Regular.woff2") format("woff2");
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: YekanBakhFaNum;
+            src: url("assets/fonts/YekanBakhFaNum-Fat.woff2") format("woff2");
+            font-weight: 1000;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #c5c3a8;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #22272c;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000;
+        }
+
+        ::-moz-selection {
+            color: #000;
+            background: #b18a46;
+        }
+
+        ::selection {
+            color: #000;
+            background: #b18a46;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            font-family: YekanBakhFaNum;
+        }
+
+        .righteSection {
+            position: relative;
+            width: 45%;
+            background: #111;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .righteSection h1 {
+            font-weight: 1000;
+            font-size: clamp(2rem, 4vw, 100rem);
+            color: #fff;
+            margin-top: 10vh;
+            z-index: 1;
+        }
+
+        .righteSection .circleHolder {
+            display: flex;
+            justify-content: center;
+            margin-top: 10%;
+        }
+
+        .righteSection .circleHolder:hover .circle {
+            margin: 0 -15%;
+        }
+
+        .righteSection .circleHolder .circle {
+            height: 60vmin;
+            width: 60vmin;
+            margin: 0 -11%;
+            border-radius: 100%;
+            border: 1px solid #fff;
+            transition: 0.5s;
+        }
+
+        .righteSection .circleHolder .filter {
+            height: 60vmin;
+            width: 100%;
+            position: absolute;
+            background: #fff;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0) 0, #111 90%);
+        }
+
+        .leftSection .buttonCardSingUp:first-child,
+        .leftSection .buttonCards:hover {
+            background-color: transparent;
+            outline: black solid 1px;
+            color: #000;
+        }
+
+        .righteSection #movingBox {
+            width: 60%;
+            height: 5%;
+            background: #262626;
+            transform: rotate(-10deg);
+            margin-top: -11%;
+            transition: none;
+        }
+
+        .leftSection {
+            width: 55%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: #e9e9e9;
+            text-align: right;
+            position: relative;
+        }
+
+        .leftSection h3 {
+            font-size: clamp(1rem, 2vw, 100rem);
+        }
+
+        .leftSection .inputCards {
+            width: 20vw;
+            background: #fff;
+            display: flex;
+            justify-content: right;
+            padding: 1.5vmin 3vmin;
+            border-radius: 1.5vmin;
+            margin-top: 2vmin;
+            font-size: clamp(1rem, 1vw, 100rem);
+            position: relative;
+        }
+
+        .leftSection .inputCards>img {
+            width: 2.3vmin;
+            padding-left: 0.5vmin;
+        }
+
+        .leftSection .inputCards p,
+        .leftSection .inputCards>img {
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .leftSection .changePassword {
+            font-size: clamp(0.8rem, 0.8vw, 100rem);
+            text-decoration-line: underline;
+            margin: 1vmin;
+            cursor: pointer;
+        }
+
+        .leftSection .TextInput {
+            border: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 1vmin 6vmin 1vmin 1vmin;
+            background: 0 0;
+        }
+
+        .TextInput:focus {
+            outline: 0;
+        }
+
+        .inputCards input:focus~p,
+        .inputCards input:not(:placeholder-shown)~p {
+            transform: translate(3vmin, -3vmin);
+        }
+
+        .leftSection .buttonCardSingUpContainer {
+            display: flex;
+            width: 100%;
+        }
+
+        .leftSection .buttonCardSingUp:first-child {
+            width: 30%;
+            margin-right: 2vmin;
+        }
+
+        .leftSection .buttonCardSingUp:nth-child(2) {
+            width: 70%;
+        }
+
+        .leftSection .buttonCards {
+            width: 100%;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            color: #fff;
+            font-size: clamp(1rem, 1vw, 100rem);
+            padding: 1.5vmin 3vmin;
+            border-radius: 1.5vmin;
+            margin-top: 2vmin;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .leftSection .buttonCards p:first-child {
+            position: absolute;
+            top: 100%;
+        }
+
+        .leftSection .buttonCards:hover p:first-child {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .leftSection .buttonCards:hover p:nth-child(2) {
+            transform: translateY(-150%);
+        }
+
+        .leftSection .trialVersionCheck {
+            font-size: clamp(0.8rem, 1vw, 100rem);
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            margin-top: 1vmin;
+        }
+
+        .leftSection .trialVersionCheck input {
+            margin: 0 1vmin;
+            width: 2vmin;
+            height: 2vmin;
+            cursor: pointer;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 767px) {
+            main {
+                flex-direction: column;
+            }
+
+            .righteSection {
+                width: 100%;
+                order: 1;
+            }
+
+            .leftSection {
+                width: 100%;
+                height: 70vh;
+                order: 2;
+            }
+
+            .leftSection .inputCards {
+                width: 90vw;
+            }
+        }
+
+        #singUpSection {
+            display: none;
+        }
+
+        .copyRight {
+            position: absolute;
+            bottom: 0;
+            z-index: 999;
+            font-size: clamp(0.7rem, .7vw, 100rem);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="singInSection" class="leftSection">
+            <div class="MainContainer">
+                <h3>ورود</h3>
+                <div class="inputCards">
+                    <input class="TextInput" title="password" type="text" placeholder=" " tabindex="1"
+                        onkeydown="handleEnter(event, 2)" />
+                    <p>شناسه ملی / کد ملی</p>
+                    <img src="assets/Icon/Vector.svg" alt="" />
+                </div>
+                <div class="inputCards">
+                    <input class="TextInput" title="password" type="text" placeholder=" " tabindex="2"
+                        onkeydown="handleEnter(event, 3)" />
+
+                    <p>نام کاربری (شماره موبایل)</p>
+                    <img src="assets/Icon/Vector2.svg" alt="" />
+                </div>
+                <div class="inputCards">
+                    <input class="TextInput" title="password" type="text" placeholder=" " tabindex="3" />
+
+                    <p id="test">کلمه عبور</p>
+                    <img src="assets/Icon/Vector3.svg" alt="" />
+                </div>
+                <a class="changePassword">بازیابی کلمه عبور</a>
+                <div class="buttonCards">
+                    <p>ورود</p>
+                    <p>ورود</p>
+                </div>
+                <div id="singIn-ChangeLayout" class="buttonCards">
+                    <p>ثبت نام</p>
+                    <p>ثبت نام</p>
+                </div>
+                <div class="trialVersionCheck">
+                    <label for="trial">ورود به نسخه آزمایشی</label>
+                    <input type="checkbox" id="trial" name="trialVersion" value="active" />
+                </div>
+            </div>
+            <p class="copyRight">Copyright © iliyaHadinezhad - <a
+                    href="https://github.com/iboxz/portfolio">Github.com</a>
+            </p>
+        </section>
+
+        <section id="singUpSection" class="leftSection">
+            <div class="MainContainer">
+                <h3>ثبت نام</h3>
+                <div class="inputCards">
+                    <input class="TextInput" title="password" type="text" placeholder=" " tabindex="1"
+                        onkeydown="handleEnter(event, 2)" />
+                    <p>شناسه ملی / کد ملی</p>
+                    <img src="assets/Icon/Vector.svg" alt="" />
+                </div>
+                <div class="inputCards">
+                    <input class="TextInput" title="password" type="text" placeholder=" " tabindex="2"
+                        onkeydown="handleEnter(event, 3)" />
+                    <p>نام کاربری (شماره موبایل)</p>
+                    <img src="assets/Icon/Vector2.svg" alt="" />
+                </div>
+                <div class="inputCards">
+                    <input class="TextInput" title="password" type="text" placeholder=" " tabindex="3"
+                        onkeydown="handleEnter(event, 4)" />
+                    <p id="test">نام (شرکت / مودی)</p>
+                    <img src="assets/Icon/Vector4.svg" alt="" />
+                </div>
+                <div class="inputCards">
+                    <input class="TextInput" title="password" type="text" placeholder=" " tabindex="4" />
+                    <p id="test">کلمه عبور</p>
+                    <img src="assets/Icon/Vector3.svg" alt="" />
+                </div>
+                <div class="buttonCardSingUpContainer">
+                    <div id="singUp-ChangeLayout" class="buttonCards buttonCardSingUp">
+                        <p>ورود</p>
+                        <p>ورود</p>
+                    </div>
+                    <div class="buttonCards buttonCardSingUp">
+                        <p>ثبت نام</p>
+                        <p>ثبت نام</p>
+                    </div>
+                </div>
+            </div>
+            <p class="copyRight">Copyright © iliyaHadinezhad - <a
+                    href="https://github.com/iboxz/portfolio">Github.com</a>
+            </p>
+        </section>
+        <section class="righteSection">
+            <h1>تمپلت صفحه لاگین</h1>
+            <div id="movingBox"></div>
+            <div class="circleHolder">
+                <div class="filter"></div>
+                <div class="circle first"></div>
+                <div class="circle second"></div>
+                <div class="circle third"></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("mousemove", function (e) {
+            var { innerWidth: pageWidth, innerHeight: pageHeight } = window;
+
+            var mouseXPercent = (e.clientX / pageWidth) * 100;
+            var mouseYPercent = (e.clientY / pageHeight) * 100;
+
+            document.getElementById(
+                "movingBox"
+            ).style.transform = `rotate(-10deg) translate(${(-50 + mouseXPercent) / 3
+            }%, ${(-50 + mouseYPercent) / 3}%)`;
+        });
+
+        function handleEnter(event, nextTabIndex) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const nextInput = document.querySelector(
+                    `[tabindex="${nextTabIndex}"]`
+                );
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        }
+
+        document
+            .getElementById("singIn-ChangeLayout")
+            .addEventListener("click", ChangeLayoutToSingUp);
+        const singUpSection = document.getElementById("singUpSection");
+
+        document
+            .getElementById("singUp-ChangeLayout")
+            .addEventListener("click", ChangeLayoutToSingIn);
+        const singInSection = document.getElementById("singInSection");
+
+        function ChangeLayoutToSingUp() {
+            singUpSection.style.display = "flex";
+            singInSection.style.display = "none";
+        }
+        function ChangeLayoutToSingIn() {
+            singUpSection.style.display = "none";
+            singInSection.style.display = "flex";
+        }
+    </script>
+</body>
+
+</html>
