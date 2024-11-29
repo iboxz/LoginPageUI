@@ -19,6 +19,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-کلیه حقوق این صفحه متعلق به ایلیا هادی‌نژاد می باشد، استفاده از این صفحه برای مقاصد شخصی مجاز است، هرگونه استفاده تجاری از این صفحه بدون اجازه کتبی ازایلیا هادی‌نژاد ممنوع است
-[برای کسب اطلاعات بیشتر لطفاً با ایلیا هادی‌نژاد تماس بگیرید](https://github.com/iboxz#contact)
+کلیه حقوق این صفحه متعلق به مالک می باشد، استفاده از این صفحه برای مقاصد شخصی مجاز است، هرگونه استفاده تجاری از این صفحه بدون اجازه کتبی از مالک ممنوع است
+[برای کسب اطلاعات بیشتر لطفاً تماس بگیرید](https://github.com/iboxz#contact)
 
